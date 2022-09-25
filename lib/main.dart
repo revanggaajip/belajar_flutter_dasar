@@ -16,7 +16,10 @@ class AplikasiKu extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(title: const Text("Latihan List View")),
-          body: ListView.builder(
+          body: ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider();
+            },
             itemCount: dataWarna.length,
             itemBuilder: (context, index) {
               return Container(
