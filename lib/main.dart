@@ -1,45 +1,26 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(myApp());
+void main() => runApp(AplikasiKu());
 
-class myApp extends StatelessWidget {
-  const myApp({Key? key}) : super(key: key);
+class AplikasiKu extends StatelessWidget {
+  List<Container> dataku = [
+    Container(width: 300, height: 300, color: Colors.red),
+    Container(width: 300, height: 300, color: Colors.blue),
+    Container(width: 300, height: 300, color: Colors.yellow),
+    Container(width: 300, height: 300, color: Colors.orange),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    const String judul = "Latihan 2";
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text(judul)),
-        body: Column(
+        appBar: AppBar(title: const Text("Latihan List View")),
+        body: ListView(
           // ignore: sort_child_properties_last
-          children: [
-            Container(
-              width: 200,
-              height: 50,
-              color: Colors.green,
-            ),
-            Container(
-              width: 50,
-              height: 50,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 100,
-              height: 50,
-              color: Colors.red,
-            ),
-            Container(
-              width: 300,
-              height: 50,
-              color: Colors.purple,
-            )
-          ],
-          //Mengatur layout dari atas ke bawah (vertical)
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-          //Mengatur layout dari kiri ke kanan (horizontal)
-          crossAxisAlignment: CrossAxisAlignment.start,
+          children: dataku,
+          //Untuk mengubah arah scroll
+          scrollDirection: Axis.vertical,
         ),
       ),
     );
