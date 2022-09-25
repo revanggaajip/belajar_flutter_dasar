@@ -11,9 +11,16 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Belajar Widget 1")),
+        appBar: AppBar(title: const Text("Belajar Widget 1")),
+        // ignore: prefer_const_constructors
         body: Center(
-          child: Text("Hello World"),
+          child: const Text(
+            "Hello World lorem ipsum tyfyut oufuof ouy uy fouyf ouyf ouyfuyf you fu fouyf ouyf ouyf ouyfouyfuyf rstrids rd itd iydt iyt ",
+            textAlign: TextAlign.right,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: TextStyle(color: Colors.cyan),
+          ),
         ),
       ),
     );
