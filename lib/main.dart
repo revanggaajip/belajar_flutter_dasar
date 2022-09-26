@@ -1,42 +1,46 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(AplikasiKu());
+void main() => runApp(Aplikasi());
 
-class AplikasiKu extends StatelessWidget {
-  // final List<Color> dataWarna = [
-  //   Colors.cyan,
-  //   Colors.yellow,
-  //   Colors.blueAccent,
-  //   Colors.redAccent
-  // ];
-
-  List<Widget> angka = List.generate(
-      100,
-      (index) => Text(
-            "${index + 1}",
-            style: TextStyle(fontSize: 20 + double.parse(index.toString())),
-          ));
+class Aplikasi extends StatelessWidget {
+  const Aplikasi({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(title: const Text("Latihan List View")),
-          body: ListView(
-            children: angka,
-          ),
-          // Menggunakan color
-          // body: ListView.separated(
-          //   separatorBuilder: (context, index) {
-          //     return const Divider();
-          //   },
-          //   itemCount: dataWarna.length,
-          //   itemBuilder: (context, index) {
-          //     return Container(
-          //         width: 300, height: 300, color: dataWarna[index]);
-          //   },
-          // )),
-        ));
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: Text("Belajar List Tile")),
+        body: ListView(
+          children: [
+            ListTile(
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              title: Text("Ini adalah judul pesan pertama"),
+              subtitle: Text("Ini adalah ringkasan pesan"),
+              leading: CircleAvatar(),
+              trailing: Text("09:44"),
+            ),
+            Divider(
+              color: Colors.black,
+            ),
+            ListTile(
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              title: Text("Ini adalah judul pesan kedua"),
+              subtitle: Text(
+                  "Ini adalah contoh pesan yang panjang yang dilimit dengan ellipsis",
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis),
+              leading: CircleAvatar(),
+              trailing: Text("09:44"),
+            ),
+            Divider(
+              color: Colors.black,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
